@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block title %}
+    dash board
+{% endblock %}
+{% block body %}
+<div id="president">
+{% if president %}
+    <strong><p>PRESIDENTIAL CANDIDATES</p></strong> 
+    {% for candidate in president %}
+    <p>{{ candidate.name }}</p>
+    <p>{{ candidate.vote_count }}</p>
+    {% endfor %}
+{% else %}
+    <p>No presidential candidate</p>
+{% endif %}
+</div>
+<div id="vice_president">
+{% if vice_president %}
+    <strong><p>VICE PRESIDENTIAL CANDIDATES</p></strong>     
+    {% for candidate in vice_president %}
+    <p>{{ candidate.name }}</p>
+    <p>{{ candidate.vote_count }}</p>
+    {% endfor %}
+{% else %}
+    <p>No vice presidential candidate</p>
+{% endif %}
+</div>
+<div id="treasurer">
+{% if treasurer %}
+    <strong><p>TREASURY CANDIDATES</p></strong>    
+    {% for candidate in treasurer %} 
+    <p>{{ candidate.name }}</p>
+    <p>{{ candidate.vote_count }}</p>
+    {% endfor %}
+{% else %}
+    <p>No  treasury candidate</p>
+{% endif %}
+</div>
+<div id="advisor">
+{% if advisor %}
+    <strong><p>ADVISORY CANDIDATES</p></strong>    
+    {% for candidate in advisor %}
+       <p>{{ candidate.name }}</p>
+       <p>{{ candidate.vote_count }}</p>
+    {% endfor %}  
+{% else %}
+    <p>No advisor candidate</p>
+{% endif %}
+</div>
+{% endblock %}
+
+
+

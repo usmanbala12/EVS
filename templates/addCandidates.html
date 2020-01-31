@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block title %}
+register
+{% endblock %}
+{% block body %}
+
+{% if get_flashed_messages() %}
+    <p>{{ get_flashed_messages() | join(" ") }}</p>
+{% endif %}
+<form action="{{ url_for('addCandidates') }}" method="post">
+    <input type="text" name="name" placeholder="full name">
+    <input type="text" name="matric_no" placeholder="matric_no">
+    <input type="text" name="aspiring_office" placeholder="aspiring_office">
+    <button>submit</button>
+</form>
+{% endblock %}

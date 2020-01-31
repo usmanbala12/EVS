@@ -1,0 +1,2 @@
+name = testvote
+url = postgresql://postgres:Ghani2001@localhost:5432/testvote

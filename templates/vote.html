@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block socketjs %}<script src="{{ url_for('static', filename='index.js') }}"></script>{% endblock %}
+{% block title %}
+    vote
+{% endblock %}
+
+{% block body %}
+<form action="{{ url_for('vote') }}" method="POST">
+{% if president %} 
+    <strong><p>PRESIDENTIAL CANDIDATES</p></strong> 
+    {% for candidate in president %}
+        <input type="radio" name="choice_president" value="{{ candidate.id }}" id="{{ candidate.id }}">{{ candidate.name }} <br> 
+    {% endfor %}
+{% else %}
+    <p>No presidential candidate</p>
+{% endif %}
+{% if vice_president %}
+    <strong><p>VICE PRESIDENTIAL CANDIDATES</p></strong>     
+    {% for candidate in vice_president %}
+        <input type="radio" name="choice_vp" value="{{ candidate.id }}" id="{{ candidate.id }}">{{ candidate.name }} <br>
+    {% endfor %}
+{% else %}
+    <p>No vice presidential candidate</p>
+{% endif %}
+{% if treasurer %}
+    <strong><p>TREASURY CANDIDATES</p></strong>    
+    {% for candidate in treasurer %} 
+        <input type="radio" name="choice_treasurer" value="{{ candidate.id }}" id="{{ candidate.id }}">{{ candidate.name }} <br>
+    {% endfor %}
+{% else %}
+    <p>No  treasury candidate</p>
+{% endif %}
+{% if advisor %}
+    <strong><p>ADVISORY CANDIDATES</p></strong>    
+    {% for candidate in advisor %}
+        <input type="radio" name="choice_advisor" value="{{ candidate.id }}" id="{{ candidate.id }}"> {{ candidate.name }} <br>
+    {% endfor %}  
+{% else %}
+    <p>No advisor candidate</p>
+{% endif %}
+<br>
+<button>submit</button>
+</form>
+{% endblock %}
+
+
+
